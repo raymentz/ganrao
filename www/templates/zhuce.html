@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>欢迎注册</title>
+    <style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+</style>
+</head>
+<body>
+
+<form action="/zhuce" method="post">
+    <legend>请注册:</legend>
+    <div>账号:<input name="username" placeholder="请输入账号" type="text"></div>
+    <div>密码:<input name="password" placeholder="请输入密码" type="password"></div>
+    <div>手机:<input name="phone" placeholder="请输入手机" type="text"></div>
+    <div>邮箱:<input name="email" placeholder="请输入邮箱" type="text"></div>
+    <div>姓名:<input name="realname" placeholder="请输入真实姓名" type="text"></div>
+    <div>权限:<input name="quanxian"  type="radio" value="developers" >开发者<input name="quanxian"  type="radio" value="administrator" >管理员<input name="quanxian"  type="radio" value="user" >普通用户</div>
+    <p><button type="submit" >注册</button></p>
+  </form>
+
+  {% if message2 %}
+  <script language="javascript">alert("{{ message2 }}");</script>
+  <!--<p style="color:red">{{ message2 }}</p>-->
+  {% endif %}
+   <d1>
+     <dt><a href=http://localhost:5000>返回</a></dt>
+   </d1>
+</body>
+</html>

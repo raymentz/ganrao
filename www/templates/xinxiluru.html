@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+  <title>干扰信息录入</title>
+  <style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+.right {
+    position: absolute;
+    right: 0px;
+    width: 500px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.left {
+    position: absolute;
+    left: 0px;
+    width: 500px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+</style>
+</head>
+<body>
+   <h1 style="font-style:italic">欢迎来到干扰信息录入模块</h1>
+   <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+<div class="row clearfix">
+  <form action="/xinxiluru" method="post" enctype="multipart/form-data" style="align: center">
+    <legend style="color:blue;text-align:center;">请输入相关信息:</legend>
+    <div class="col-md-6 column" >
+      <table >
+    <tr>
+<td align="right" width="150">ID</td>
+<td><label><input name="id1"  type="text" >
+</label></td>
+</tr>
+    <tr>
+<td align="right" width="150">镇区</td>
+<td><label><input name="zhenqu1"  type="radio" value="禅城" >禅城<input name="zhenqu1"  type="radio" value="顺德" >顺德<input name="zhenqu1"  type="radio" value="三水" >三水<input name="zhenqu1"  type="radio" value="南海" >南海<input name="zhenqu1"  type="radio" value="高明" >高明</label></td>
+    <tr>
+<td align="right" width="150">干扰区域</td>
+<td><label><input name="ganraoquyu1"  type="text" ></label></td>
+      </tr>
+    <tr>
+<td align="right" width="150">日期</td>
+<td><label><input name="date1"  type="date" ></label></td></tr>
+    <tr>
+<td align="right" width="150">干扰地址</td>
+<td><label><textarea name="ganraodizhi1" rows="3" cols="30"></textarea></label></td></tr>
+    <tr>
+    <td align="right" width="150">联系方式</td>
+<td><label><input name="lianxi1"  type="text" ></label></td></tr>
+    <tr>
+    <td align="right" width="150">经度</td>
+<td><label><input name="jingdu1"  type="text" ></label></td></tr>
+    <tr>
+    <td align="right" width="150">纬度</td>
+<td><label><input name="weidu1"  type="text" ></label></td></tr>
+    <tr>
+    <td align="right" width="150">处理情况</td>
+<td><label><textarea name="chuliqingkuang1" rows="3" cols="30"></textarea></label></td></tr>
+    <tr>
+    <td align="right" width="150">是否完成处理</td>
+<td><label><input name="wanchengchuli1"  type="radio" value="是" >是<input name="wanchengchuli1"  type="radio" value="否" >否</label></td></tr>
+     </table>
+    </div>
+    <div class="col-md-6 column">
+    <p>干扰常见问题预处理:</p>
+      <p>1）小区住宅或城中村出租屋等私放三网放大器<input name="wenti1"  type="radio" value="yes" >是<input name="wenti1"  type="radio" value="no" >否</p>
+      <p>2）监狱、教育局等政府机构工作需要或学校考试等安装屏蔽器<input name="wenti2"  type="radio" value="yes" >是<input name="wenti2"  type="radio" value="no" >否</p>
+    <p>3）杂散干扰：天线对打或天线隔离度不够<input name="wenti3"  type="radio" value="yes" >是<input name="wenti3"  type="radio" value="no" >否</p>
+    <p>4）自身接收机功能差或者设备故障<input name="wenti4"  type="radio" value="yes" >是<input name="wenti4"  type="radio" value="no" >否</p>
+    <p>5）伪基站非法集中频繁拨打<input name="wenti5"  type="radio" value="yes" >是<input name="wenti5"  type="radio" value="no" >否</p>
+    <p>6）机场、港口等GPS故障<input name="wenti6"  type="radio" value="yes" >是<input name="wenti6"  type="radio" value="no" >否</p>
+    <p>7）基站参数配置不正确<input name="wenti7"  type="radio" value="yes" >是<input name="wenti7"  type="radio" value="no" >否</p>
+    <p>干扰源所在场景<input name="ganraochangjing"  type="radio" value="100" >高铁场景<input name="ganraochangjing"  type="radio" value="100" >高校场景<input name="ganraochangjing"  type="radio" value="100" >菜市场场景<input name="ganraochangjing"  type="radio" value="100" >高速场景<input name="ganraochangjing"  type="radio" value="100" >地铁场景<input name="ganraochangjing"  type="radio" value="100" >高价值区场景<input name="ganraochangjing"  type="radio" value="100" >美食场景<input name="ganraochangjing"  type="radio" value="100" >美景场景<input name="ganraochangjing"  type="radio" value="20" >普通场景</p>
+      <p>干扰源处理紧急程度<input name="jinjichengdu"  type="radio" value="300" >紧急处理告警<input name="jinjichengdu"  type="radio" value="200" >重要处理告警<input name="jinjichengdu"  type="radio" value="100" >一般处理告警</p>
+        <p><button type="submit" name="submit1" value="submit1">录入</button></p>
+    {% if message %}
+    <!--<script language="javascript">alert("{{ message }}");</script>-->
+    <p style="color:red">{{ message }}</p>
+    {% endif %}
+    {% if message1 %}
+    <script language="javascript">alert("修复建议：\n{{ message1 }}\n{{ answer2 }}\n{{ answer3 }}");</script>
+    <!--<p style="color:blue">修复建议：{{ message1 }}\n{{ answer2 }}\n{{ answer3 }}</p>-->
+    {% endif %}
+      </div>
+  </form>
+
+</div>
+
+   <d1>
+     <dt><a href=http://localhost:5000>返回</a></dt>
+   </d1>
+ </div>
+          </div>
+    </div>
+
+</body>
+</html>

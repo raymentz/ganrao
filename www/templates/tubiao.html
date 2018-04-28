@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <style>
+body
+{
+	background-color:#d0e4fe;
+}
+</style>
+   </head>
+   <body style="height: 100%; margin: 0">
+   <!--style="height: 100%; margin: 0"-->
+   <!--{% if y1 %}-->
+    <!--<script language="javascript">-->
+     <!--var myGeocode = {{ y1|tojson }};-->
+    <!--alert(myGeocode);-->
+    <!--&lt;!&ndash;</script>&ndash;&gt;-->
+    <!--{% endif %}-->
+       <div id="container" style="height: 50% ;width:50%"></div>
+        <div id="container1" style="height: 50% ;width:50%"></div>
+        <div id="container2" style="height: 50% ;width:50%"></div>
+   <div><a href=http://localhost:5000>返回</a></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+myGeocode1 = {{ y1|tojson|safe }};
+myGeocode2 = {{ y2|tojson|safe }};
+myGeocode3 = {{ y3|tojson|safe }};
+myGeocode4 = {{ y4|tojson|safe }};
+myGeocode5 = {{ y5|tojson|safe }};
+myGeocode6 = {{ y6|tojson|safe }};
+myGeocode7 = {{ n1|tojson|safe }};
+myGeocode8 = {{ n2|tojson|safe }};
+myGeocode9 = {{ n3|tojson|safe }};
+myGeocode10 = {{ n4|tojson|safe }};
+myGeocode11 = {{ n5|tojson|safe }};
+myGeocode12 = {{ n6|tojson|safe }};
+<!--alert(myGeocode1);-->
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '佛山五区干扰处理情况 - 条形图';
+
+option = {
+    title: {
+        text: '佛山五区干扰处理情况',
+        subtext: '数据来自数据库'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    legend: {
+        data: ['已完成处理', '未完成处理']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        data: ['禅城', '南海', '顺德', '三水', '高明', '佛山(总)']
+    },
+    series: [
+        {
+            name: '已完成处理',
+            type: 'bar',
+            data: [myGeocode1, myGeocode2, myGeocode3, myGeocode4, myGeocode5, myGeocode6]
+        },
+        {
+            name: '未完成处理',
+            type: 'bar',
+            data: [myGeocode7, myGeocode8, myGeocode9, myGeocode10, myGeocode11, myGeocode12]
+        }
+    ]
+};
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   <script type="text/javascript">
+myGeocode1 = {{ y1|tojson|safe }};
+myGeocode2 = {{ y2|tojson|safe }};
+myGeocode3 = {{ y3|tojson|safe }};
+myGeocode4 = {{ y4|tojson|safe }};
+myGeocode5 = {{ y5|tojson|safe }};
+myGeocode6 = {{ y6|tojson|safe }};
+myGeocode7 = {{ n1|tojson|safe }};
+myGeocode8 = {{ n2|tojson|safe }};
+myGeocode9 = {{ n3|tojson|safe }};
+myGeocode10 = {{ n4|tojson|safe }};
+myGeocode11 = {{ n5|tojson|safe }};
+myGeocode12 = {{ n6|tojson|safe }};
+var dom = document.getElementById("container1");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '佛山五区干扰处理情况嵌套环形图';
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['禅城', '南海', '顺德', '三水', '高明']
+    },
+    series: [
+        {
+            name:'已完成处理',
+            type:'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+
+            label: {
+                normal: {
+                    position: 'inner'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:myGeocode1, name:'禅城', selected:true},
+                {value:myGeocode2, name:'南海'},
+                {value:myGeocode3, name:'顺德'},
+                {value:myGeocode4, name:'三水'},
+                {value:myGeocode5, name:'高明'}
+            ]
+        },
+        {
+            name:'未完成处理',
+            type:'pie',
+            radius: ['40%', '55%'],
+            label: {
+                normal: {
+                    formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                    backgroundColor: '#eee',
+                    borderColor: '#aaa',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    // shadowBlur:3,
+                    // shadowOffsetX: 2,
+                    // shadowOffsetY: 2,
+                    // shadowColor: '#999',
+                    // padding: [0, 7],
+                    rich: {
+                        a: {
+                            color: '#999',
+                            lineHeight: 22,
+                            align: 'center'
+                        },
+                        // abg: {
+                        //     backgroundColor: '#333',
+                        //     width: '100%',
+                        //     align: 'right',
+                        //     height: 22,
+                        //     borderRadius: [4, 4, 0, 0]
+                        // },
+                        hr: {
+                            borderColor: '#aaa',
+                            width: '100%',
+                            borderWidth: 0.5,
+                            height: 0
+                        },
+                        b: {
+                            fontSize: 16,
+                            lineHeight: 33
+                        },
+                        per: {
+                            color: '#eee',
+                            backgroundColor: '#334455',
+                            padding: [2, 4],
+                            borderRadius: 2
+                        }
+                    }
+                }
+            },
+            data:[
+                {value:myGeocode7, name:'禅城'},
+                {value:myGeocode8, name:'南海'},
+                {value:myGeocode9, name:'顺德'},
+                {value:myGeocode10, name:'三水'},
+                {value:myGeocode11, name:'高明'},
+
+            ]
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   <script type="text/javascript">
+myGeocode1 = {{ x1|tojson|safe }};
+myGeocode2 = {{ x2|tojson|safe }};
+myGeocode3 = {{ x3|tojson|safe }};
+myGeocode4 = {{ x4|tojson|safe }};
+myGeocode5 = {{ x5|tojson|safe }};
+myGeocode6 = {{ a1|tojson|safe }};
+myGeocode7 = {{ a2|tojson|safe }};
+myGeocode8 = {{ a3|tojson|safe }};
+myGeocode9 = {{ a4|tojson|safe }};
+myGeocode10 = {{ a5|tojson|safe }};
+myGeocode11 = {{ a6|tojson|safe }};
+myGeocode12 = {{ a7|tojson|safe }};
+myGeocode13 = {{ a8|tojson|safe }};
+myGeocode14 = {{ a9|tojson|safe }};
+myGeocode15 = {{ a10|tojson|safe }};
+myGeocode16 = {{ a11|tojson|safe }};
+myGeocode17 = {{ a12|tojson|safe }};
+myGeocode18 = {{ a13|tojson|safe }};
+myGeocode19 = {{ a14|tojson|safe }};
+myGeocode20 = {{ a15|tojson|safe }};
+myGeocode21 = {{ a16|tojson|safe }};
+myGeocode22 = {{ a17|tojson|safe }};
+myGeocode23 = {{ a18|tojson|safe }};
+myGeocode24 = {{ a19|tojson|safe }};
+myGeocode25 = {{ a20|tojson|safe }};
+myGeocode26 = {{ a21|tojson|safe }};
+myGeocode27 = {{ a22|tojson|safe }};
+myGeocode28 = {{ a23|tojson|safe }};
+myGeocode29 = {{ a24|tojson|safe }};
+myGeocode30 = {{ a25|tojson|safe }};
+var dom = document.getElementById("container2");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '折线图'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['佛山','禅城','南海','顺德','三水','高明']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['2017年12月','2018年1月','2018年2月','2018年3月','2018年4月']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'佛山',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode1,myGeocode2,myGeocode3,myGeocode4,myGeocode5]
+        },
+        {
+            name:'禅城',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode6,myGeocode11,myGeocode16,myGeocode21,myGeocode26]
+        },
+        {
+            name:'南海',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode7,myGeocode12,myGeocode17,myGeocode22,myGeocode27]
+        },
+        {
+            name:'顺德',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode8,myGeocode13,myGeocode18,myGeocode23,myGeocode28]
+        },
+        {
+            name:'三水',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode9,myGeocode14,myGeocode19,myGeocode24,myGeocode29]
+        },
+        {
+            name:'高明',
+            type:'line',
+            stack: '总量',
+            data:[myGeocode10,myGeocode15,myGeocode20,myGeocode25,myGeocode30]
+        },
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

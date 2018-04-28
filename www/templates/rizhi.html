@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>查询操作日志</title>
+    <style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+#customers
+{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	width:100%;
+	border-collapse:collapse;
+}
+#customers td, #customers th
+{
+	font-size:1em;
+	border:1px solid #98bf21;
+	padding:3px 7px 2px 7px;
+}
+#customers th
+{
+	font-size:1.1em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#A7C942;
+	color:#ffffff;
+}
+#customers tr.alt td
+{
+	color:#000000;
+	background-color:#EAF2D3;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+</style>
+</head>
+<body>
+<form action="/rizhi" method="post">
+    <p><button type="submit" name="submit" value="submit">查询最近日志</button></p>
+    <d1>
+     <dt><a href=http://localhost:5000>返回</a></dt>
+    </d1>
+    {% if message %}
+    <table id="customers" >
+    <p >{{ message }}</p>
+      <tr>
+      <th>第一条:</th>
+      <td>{{ lines1 }}{{ lines2 }}</td>
+      </tr>
+      <tr>
+      <th>第二条:</th>
+      <td>{{ lines3 }}{{ lines4 }}</td>
+      </tr>
+      <tr>
+      <th>第三条:</th>
+      <td>{{ lines5 }}{{ lines6 }}</td>
+      </tr>
+      <tr>
+      <th>第四条:</th>
+      <td>{{ lines7 }}{{ lines8 }}</td>
+      </tr>
+      <tr>
+      <th>第五条:</th>
+      <td>{{ lines9 }}{{ lines10 }}</td>
+      </tr>
+    </table>
+    {% endif %}
+    </form>
+
+</body>
+</html>

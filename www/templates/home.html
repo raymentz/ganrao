@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>干扰排查处理系统</title>
+<style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:110px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+#customers
+{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	width:100%;
+	border-collapse:collapse;
+}
+#customers td, #customers th
+{
+	font-size:1em;
+	border:1px solid #98bf21;
+	padding:3px 7px 2px 7px;
+}
+#customers th
+{
+	font-size:1.1em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#A7C942;
+	color:#ffffff;
+}
+#customers tr.alt td
+{
+	color:#000000;
+	background-color:#EAF2D3;
+}
+p
+{
+color:blue;
+text-align:center;
+}
+</style>
+</head>
+<body>
+  <h1>欢迎来到干扰排查处理系统</h1>
+
+
+  <div>
+      <table >
+          <tr>
+      <th><a href=http://localhost:5000/zhuce>用户注册</a></th>
+    <th><a href=http://localhost:5000/signin>用户登录</a></th>
+   <th><a href=http://localhost:5000/xinxiluru>信息录入</a></th>
+    <th><a href=http://localhost:5000/chaxun>信息查询</a></th>
+      <th><a href=http://localhost:5000/xiugai>信息修改</a></th>
+      <th><a href=http://localhost:5000/daochu>信息导出</a></th>
+      <th><a href=http://localhost:5000/shangchuan>信息导入</a></th>
+      <th><a href=http://localhost:5000/rizhi>查询日志</a></th>
+      <th><a href=http://localhost:5000/ditu>高德地图</a></th>
+      <th><a href=http://localhost:5000/biao>统计图表</a></th>
+              <th><a href=http://localhost:5000/gongdan>工单模块</a></th>
+          </tr>
+   </table>
+  </div>
+  <p >最需要解决的10个干扰源</p>
+<div>
+{% if xinxi %}
+    <table id="customers" >
+      <tr>
+    <th>ID</th>
+    <th>镇区</th>
+    <th>干扰区域</th>
+    <th>日期</th>
+    <th>干扰地址</th>
+    <th>联系方式</th>
+    <th>经度</th>
+    <th>纬度</th>
+    <th>处理情况</th>
+    <th>是否完成处理</th>
+    <th>处理紧急程度系数</th>
+  </tr>
+  <tr>
+    <td>{{ xinxi[0][0] }}</td>
+    <td>{{ xinxi[0][1] }}</td>
+      <td>{{ xinxi[0][2] }}</td>
+    <td>{{ xinxi[0][3] }}</td>
+      <td>{{ xinxi[0][4] }}</td>
+    <td>{{ xinxi[0][5] }}</td>
+      <td>{{ xinxi[0][6] }}</td>
+    <td>{{ xinxi[0][7] }}</td>
+      <td>{{ xinxi[0][8] }}</td>
+    <td>{{ xinxi[0][9] }}</td>
+      <td>{{ xinxi[0][10] }}</td>
+  </tr>
+<tr>
+    <td>{{ xinxi[1][0] }}</td>
+    <td>{{ xinxi[1][1] }}</td>
+      <td>{{ xinxi[1][2] }}</td>
+    <td>{{ xinxi[1][3] }}</td>
+      <td>{{ xinxi[1][4] }}</td>
+    <td>{{ xinxi[1][5] }}</td>
+      <td>{{ xinxi[1][6] }}</td>
+    <td>{{ xinxi[1][7] }}</td>
+      <td>{{ xinxi[1][8] }}</td>
+    <td>{{ xinxi[1][9] }}</td>
+      <td>{{ xinxi[1][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[2][0] }}</td>
+    <td>{{ xinxi[2][1] }}</td>
+      <td>{{ xinxi[2][2] }}</td>
+    <td>{{ xinxi[2][3] }}</td>
+      <td>{{ xinxi[2][4] }}</td>
+    <td>{{ xinxi[2][5] }}</td>
+      <td>{{ xinxi[2][6] }}</td>
+    <td>{{ xinxi[2][7] }}</td>
+      <td>{{ xinxi[2][8] }}</td>
+    <td>{{ xinxi[2][9] }}</td>
+      <td>{{ xinxi[2][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[3][0] }}</td>
+    <td>{{ xinxi[3][1] }}</td>
+      <td>{{ xinxi[3][2] }}</td>
+    <td>{{ xinxi[3][3] }}</td>
+      <td>{{ xinxi[3][4] }}</td>
+    <td>{{ xinxi[3][5] }}</td>
+      <td>{{ xinxi[3][6] }}</td>
+    <td>{{ xinxi[3][7] }}</td>
+      <td>{{ xinxi[3][8] }}</td>
+    <td>{{ xinxi[3][9] }}</td>
+      <td>{{ xinxi[3][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[4][0] }}</td>
+    <td>{{ xinxi[4][1] }}</td>
+      <td>{{ xinxi[4][2] }}</td>
+    <td>{{ xinxi[4][3] }}</td>
+      <td>{{ xinxi[4][4] }}</td>
+    <td>{{ xinxi[4][5] }}</td>
+      <td>{{ xinxi[4][6] }}</td>
+    <td>{{ xinxi[4][7] }}</td>
+      <td>{{ xinxi[4][8] }}</td>
+    <td>{{ xinxi[4][9] }}</td>
+      <td>{{ xinxi[4][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[5][0] }}</td>
+    <td>{{ xinxi[5][1] }}</td>
+      <td>{{ xinxi[5][2] }}</td>
+    <td>{{ xinxi[5][3] }}</td>
+      <td>{{ xinxi[5][4] }}</td>
+    <td>{{ xinxi[5][5] }}</td>
+      <td>{{ xinxi[5][6] }}</td>
+    <td>{{ xinxi[5][7] }}</td>
+      <td>{{ xinxi[5][8] }}</td>
+    <td>{{ xinxi[5][9] }}</td>
+      <td>{{ xinxi[5][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[6][0] }}</td>
+    <td>{{ xinxi[6][1] }}</td>
+      <td>{{ xinxi[6][2] }}</td>
+    <td>{{ xinxi[6][3] }}</td>
+      <td>{{ xinxi[6][4] }}</td>
+    <td>{{ xinxi[6][5] }}</td>
+      <td>{{ xinxi[6][6] }}</td>
+    <td>{{ xinxi[6][7] }}</td>
+      <td>{{ xinxi[6][8] }}</td>
+    <td>{{ xinxi[6][9] }}</td>
+      <td>{{ xinxi[6][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[7][0] }}</td>
+    <td>{{ xinxi[7][1] }}</td>
+      <td>{{ xinxi[7][2] }}</td>
+    <td>{{ xinxi[7][3] }}</td>
+      <td>{{ xinxi[7][4] }}</td>
+    <td>{{ xinxi[7][5] }}</td>
+      <td>{{ xinxi[7][6] }}</td>
+    <td>{{ xinxi[7][7] }}</td>
+      <td>{{ xinxi[7][8] }}</td>
+    <td>{{ xinxi[7][9] }}</td>
+      <td>{{ xinxi[7][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[8][0] }}</td>
+    <td>{{ xinxi[8][1] }}</td>
+      <td>{{ xinxi[8][2] }}</td>
+    <td>{{ xinxi[8][3] }}</td>
+      <td>{{ xinxi[8][4] }}</td>
+    <td>{{ xinxi[8][5] }}</td>
+      <td>{{ xinxi[8][6] }}</td>
+    <td>{{ xinxi[8][7] }}</td>
+      <td>{{ xinxi[8][8] }}</td>
+    <td>{{ xinxi[8][9] }}</td>
+      <td>{{ xinxi[8][10] }}</td>
+  </tr>
+        <tr>
+    <td>{{ xinxi[9][0] }}</td>
+    <td>{{ xinxi[9][1] }}</td>
+      <td>{{ xinxi[9][2] }}</td>
+    <td>{{ xinxi[9][3] }}</td>
+      <td>{{ xinxi[9][4] }}</td>
+    <td>{{ xinxi[9][5] }}</td>
+      <td>{{ xinxi[9][6] }}</td>
+    <td>{{ xinxi[9][7] }}</td>
+      <td>{{ xinxi[9][8] }}</td>
+    <td>{{ xinxi[9][9] }}</td>
+      <td>{{ xinxi[9][10] }}</td>
+  </tr>
+    </table>
+    {% endif %}
+</div>
+
+</body>
+</html>

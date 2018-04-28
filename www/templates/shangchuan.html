@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <!--content-type="application/json"-->
+    <title>数据上传</title>
+    <style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+</style>
+</head>
+<body class="dialogBody">
+    <div>
+        <form  method="post" action="/shangchuan" enctype="multipart/form-data" style="align: center">
+                <table width="100%" border="0" cellspacing="0" cellpadding="6" class="blockTable">
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center"><h2>选择Excel表：</h2></td>
+                        <td align="center">
+                            <div>
+                                <input type="file"  name="file_upload"  >
+                                <!--accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"-->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="submit" name="submit" value="上传" /></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </table>
+        </form>
+    </div>
+    {% if message %}
+    <script language="javascript">alert("{{ message }}");</script>
+    <!--<p style="color:red">{{ message }}</p>-->
+    {% endif %}
+    <d1>
+     <dt><a href=http://localhost:5000 >返回</a></dt>
+   </d1>
+</body>
+</html>

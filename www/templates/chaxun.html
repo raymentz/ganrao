@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>干扰源信息查询模块</title>
+    <style>
+    h1
+{
+	color:orange;
+	text-align:center;
+}
+body
+{
+	background-color:#d0e4fe;
+}
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+</style>
+</head>
+<body>
+<h1 style="font-style:italic">欢迎来到干扰信息查询模块</h1>
+<form action="/chaxun" method="post">
+    <legend>请输入需要查询的干扰源信息</legend>
+
+    <p>ID<input name="id2"  type="text" ></p>
+    <p>干扰区域<input name="ganraoquyu2"  type="text" ></p>
+    <p>经度<input name="jingdu2"  type="text" ></p>
+    <p>纬度<input name="weidu2"  type="text" ></p>
+    <p><button type="submit" name="submit2" value="submit2">查询</button></p>
+    <d1>
+     <dt><a href=http://localhost:5000>返回</a></dt>
+    </d1>
+    {% if message1 %}
+    <table  style="color:red">
+      <script language="javascript">alert("{{ message1 }}");</script>
+    <!--<p style="color:red">{{ message1 }}</p>-->
+      <tr>
+      <th>ID:</th>
+      <td>{{ id2 }}</td>
+      </tr>
+      <tr>
+      <th>镇区:</th>
+      <td>{{ zhenqu2 }}</td>
+      </tr>
+      <tr>
+      <th>干扰区域:</th>
+      <td>{{ ganraoquyu2 }}</td>
+      </tr>
+      <tr>
+      <th>日期:</th>
+      <td>{{ date2 }}</td>
+      </tr>
+      <tr>
+      <th>干扰地址:</th>
+      <td>{{ ganraodizhi2 }}</td>
+      </tr>
+      <tr>
+      <th>联系方式:</th>
+      <td>{{ lianxi2 }}</td>
+      </tr>
+      <tr>
+      <th>经度:</th>
+      <td>{{ jingdu2 }}</td>
+      </tr>
+      <tr>
+      <th>纬度:</th>
+      <td>{{ weidu2 }}</td>
+      </tr>
+      <tr>
+      <th>处理情况:</th>
+      <td>{{ chuliqingkuang2 }}</td>
+      </tr>
+      <tr>
+      <th>是否完成处理:</th>
+      <td>{{ wanchengchuli2 }}</td>
+      </tr>
+        <th>处理紧急程度:</th>
+      <td>{{ chulijinjichengdu2 }}</td>
+      </tr>
+
+    </table>
+    {% endif %}
+    {% if message2 %}
+    <script language="javascript">alert("{{ message2 }}");</script>
+    <!--<p style="color:red">{{ message2 }}</p>-->
+    {% endif %}
+    </form>
+
+</body>
+</html>
